@@ -1,0 +1,5 @@
+.gcloud/*.json
+!.gcloud.gitkeep
+
+venv
+logs
