@@ -23,7 +23,7 @@ function error() {
 
 case $DEPLOYMENT in
     prod)
-        ROOT_PROJECT_DIR=/src
+        ROOT_PROJECT_DIR=$EXECUTION_DIRECTORY
         DOT_ENV_FILE=$EXECUTION_DIRECTORY/.env.$DEPLOYMENT
         BQ_SERVICE_JSON=$ROOT_PROJECT_DIR/.gcloud/prod-$BQ_KEY_FILE
         GOOGLE_CLOUD_PROJECT="dbt-project-prod-463419"
