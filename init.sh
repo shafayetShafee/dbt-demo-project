@@ -1,7 +1,4 @@
 #!/bin/bash
-
-set -euo pipefail
-
 DEPLOYMENT=${1:-"dev"}
 BQ_KEY_FILE=${2:-"keyfile.json"}
 DBT_FOLDER=${3:-"jaffle_shop"}
