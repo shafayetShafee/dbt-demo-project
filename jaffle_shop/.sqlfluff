@@ -1,0 +1,33 @@
+[sqlfluff]
+templater = dbt
+dialect = bigquery
+large_file_skip_byte_limit = 25000
+exclude_rules = CP02,LT05
+rules = AL01,AL02,AL03,CP01,LT01,LT02,LT03,LT04,LT06,LT07,LT12,ST08
+
+# AL01 => aliasing.table,
+# AL02 => aliasing.column,
+# AL03 => aliasing.expression,
+# CP01 => capitalisation.keywords,
+# CP02 => capitalisation.identifiers,
+# LT01 => layout.spacing,
+# LT02 => layout.indent,
+# LT03 => layout.operators,
+# LT04 => layout.commas,
+# LT06 => layout.functions,
+# LT05 => layout.long_lines,
+# LT07 => layout.cte_bracket,
+# LT12 => layout.end_of_file,
+# ST08 => structure.distinct,
+# See https://docs.sqlfluff.com/en/stable/reference/rules.html#ruleref for details.
+
+processes = -1
+
+[sqlfluff:templater:dbt]
+profiles_dir = .
+
+[sqlfluff:layout:type:comma]
+line_position = leading
+
+[sqlfluff:indentation]
+indent_unit = tab
