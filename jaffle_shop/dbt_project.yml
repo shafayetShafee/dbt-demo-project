@@ -1,16 +1,8 @@
-
-# Name your project! Project names should contain only lowercase characters
-# and underscores. A good package name should reflect your organization's
-# name or the intended use of these models
 name: 'jaffle_shop'
 version: '1.0.0'
 
-# This setting configures which "profile" dbt uses for this project.
 profile: 'jaffle_shop'
 
-# These configurations specify where dbt should look for different types of files.
-# The `model-paths` config, for example, states that models in this project can be
-# found in the "models/" directory. You probably won't need to change these!
 model-paths: ["models"]
 analysis-paths: ["analyses"]
 test-paths: ["tests"]
@@ -18,19 +10,33 @@ seed-paths: ["seeds"]
 macro-paths: ["macros"]
 snapshot-paths: ["snapshots"]
 
-clean-targets:         # directories to be removed by `dbt clean`
+clean-targets:
   - "target"
   - "dbt_packages"
 
-
-# Configuring models
-# Full documentation: https://docs.getdbt.com/docs/configuring-models
-
-# In this example config, we tell dbt to build all models in the example/
-# directory as views. These settings can be overridden in the individual model
-# files using the `{{ config(...) }}` macro.
 models:
+  +hours_to_expiration: |
+    {%- if target.name == "dev" -%} 72
+    {%- elif target.name == "prod" -%} null
+    {%- else -%} invalid_project
+    {%- endif -%}
   jaffle_shop:
-    # Config indicated by + and applies to all files under models/example/
-    example:
+    +project: |
+      {%- if target.name == "dev" -%} dbt-project-463320
+      {%- elif target.name == "prod" -%} dbt-project-prod-463419
+      {%- else -%} invalid_project
+      {%- endif -%}
+    +dataset: |
+      +project: |
+      {%- if target.name == "dev" -%} default_dev
+      {%- elif target.name == "prod" -%} default_prod
+      {%- else -%} invalid_project
+      {%- endif -%}
+    +persist_docs:
+      relation: true
+      column: true
+    
+    staging:
       +materialized: view
+      dataset: staging
+      
