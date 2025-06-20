@@ -1,0 +1,15 @@
+version: 2
+
+sources:
+  - name: jaffle_shop
+    description: "Contains Jaffle shop orders and customers data"
+    project: dbt-tutorial
+    dataset: jaffle_shop
+    tables:
+      - name: customers
+        idenitfier: customers
+        description: Contains Jaffle shop customer data
+      
+      - name: orders
+        idenitfier: orders
+        description: Contains Jaffle shop orders data

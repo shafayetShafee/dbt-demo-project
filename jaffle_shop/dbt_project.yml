@@ -27,7 +27,6 @@ models:
       {%- else -%} invalid_project
       {%- endif -%}
     +dataset: |
-      +project: |
       {%- if target.name == "dev" -%} default_dev
       {%- elif target.name == "prod" -%} default_prod
       {%- else -%} invalid_project
