@@ -7,12 +7,21 @@ jaffle_shop:
       type: bigquery
       method: oauth
       project: dbt-project-463320
-      dataset: jaffle_shop
+      dataset: "{{ env_var('DEVELOPER_PREFIX') }}"
       job_execution_timeout_seconds: 300
       job_retries: 1
-      # keyfile: ~/Downloads/dbt-user-creds.json
       location: US
-      # method: service-account
+      priority: interactive
+      threads: 4
+
+    prod:
+      type: bigquery
+      method: service-account
+      keyfile: "{{ env_var('BQ_SERVICE_JSON') }}"
+      project: dbt-project-prod-463419
+      dataset: "{{ env_var('DEVELOPER_PREFIX') }}"
+      job_execution_timeout_seconds: 300
+      location: US
       priority: interactive
       threads: 4
       
