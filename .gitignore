@@ -1,10 +1,34 @@
-.gcloud/*.json
-!.gcloud.gitkeep
+# IDE and Editor Files
+.idea
+.DS_Store
+.vscode
 
+# Virtual Environment Files
 venv
-logs
+python/
+uv-cache/
+
+# Environment Configuration Files
 .env*
 !.env.conf
 
-python/
-uv-cache/
+# Cloud Configuration Files
+.gcloud
+!.gcloud.gitkeep
+
+# Log Files
+logs
+
+# Compiled Files
+prod_compiled
+artifact
+
+# Python Cache Files
+__pycache__
+
+# Credentials Files
+*credential*
+
+# Miscellaneous Files
+foo.*
+test
