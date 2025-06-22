@@ -7,14 +7,14 @@ models:
       alias: customers
     columns:
       - name: customer_id
-        description: Unique Customer ID
+        description: "Unique Customer ID"
         tests:
           - not_null
           - unique
       - name: first_name
-        description: Customer's first name
+        description: "Customer's first name"
       - name: last_name
-        description: Customer's last name
+        description: "Customer's last name"
 
   - name: stg_orders
     description: Contains Jaffle shop orders data
@@ -22,12 +22,12 @@ models:
       alias: orders
     columns:
       - name: order_id
-        description: Unique order ID
+        description: "Unique order ID"
         tests:
           - not_null
           - unique
       - name: customer_id
-        description: Unique Customer ID
+        description: "Unique Customer ID"
         tests:
           - not_null
       - name: order_date
