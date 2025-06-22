@@ -7,6 +7,7 @@ function log() {
 
 source project-setup.sh "$TARGET" &&
 dbt compile &&
+dbt docs generate --no-compile &&
 dbt build
 
 log "DBT RUN SUCCESSFUL"
